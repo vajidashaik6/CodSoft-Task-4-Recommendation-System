@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MovieMind AI | Recommendation System</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+
+        <div class="logo">
+            🎬 MovieMind <span>AI</span>
+        </div>
+
+        <div class="badge">
+            AI Recommendation System
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        <!-- Hero Section -->
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <p class="tagline">
+                    ✨ SMART MOVIE DISCOVERY
+                </p>
+
+                <h1>
+                    Find Movies You'll
+                    <span>Love.</span>
+                </h1>
+
+                <p class="subtitle">
+                    Select a movie you enjoy and let our AI-powered
+                    recommendation engine discover similar movies for you.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Recommendation Card -->
+        <section class="recommendation-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <p class="section-label">
+                        PERSONALIZED FOR YOU
+                    </p>
+
+                    <h2>
+                        What movie do you like?
+                    </h2>
+
+                </div>
+
+                <div class="ai-icon">
+                    🤖
+                </div>
+
+            </div>
+
+
+            <div class="search-area">
+
+                <!-- Search Box -->
+                <div class="search-box">
+
+                    <input
+                        type="text"
+                        id="movieSearch"
+                        placeholder="🔎 Search for a movie..."
+                        oninput="filterMovies()"
+                    >
+
+                </div>
+
+
+                <!-- Movie Selection -->
+                <label for="movieSelect">
+                    Select a movie
+                </label>
+
+
+                <div class="input-row">
+
+                    <select id="movieSelect">
+
+                        <option value="">
+                            Choose a movie...
+                        </option>
+
+                        <option value="Inception">
+                            Inception
+                        </option>
+
+                        <option value="Interstellar">
+                            Interstellar
+                        </option>
+
+                        <option value="The Dark Knight">
+                            The Dark Knight
+                        </option>
+
+                        <option value="Avengers Endgame">
+                            Avengers Endgame
+                        </option>
+
+                        <option value="Spider-Man No Way Home">
+                            Spider-Man No Way Home
+                        </option>
+
+                        <option value="The Matrix">
+                            The Matrix
+                        </option>
+
+                        <option value="Jurassic Park">
+                            Jurassic Park
+                        </option>
+
+                        <option value="Titanic">
+                            Titanic
+                        </option>
+
+                        <option value="The Notebook">
+                            The Notebook
+                        </option>
+
+                        <option value="La La Land">
+                            La La Land
+                        </option>
+
+                        <option value="Forrest Gump">
+                            Forrest Gump
+                        </option>
+
+                        <option value="The Shawshank Redemption">
+                            The Shawshank Redemption
+                        </option>
+
+                        <option value="The Pursuit of Happyness">
+                            The Pursuit of Happyness
+                        </option>
+
+                        <option value="3 Idiots">
+                            3 Idiots
+                        </option>
+
+                        <option value="Dangal">
+                            Dangal
+                        </option>
+
+                        <option value="RRR">
+                            RRR
+                        </option>
+
+                        <option value="Baahubali">
+                            Baahubali
+                        </option>
+
+                        <option value="Zindagi Na Milegi Dobara">
+                            Zindagi Na Milegi Dobara
+                        </option>
+
+                        <option value="The Hangover">
+                            The Hangover
+                        </option>
+
+                        <option value="Toy Story">
+                            Toy Story
+                        </option>
+
+                    </select>
+
+
+                    <button
+                        id="recommendBtn"
+                        onclick="getRecommendations()"
+                    >
+                        <span>✨</span>
+                        Recommend
+                    </button>
+
+                </div>
+
+
+                <p class="helper-text">
+                    Our AI will analyze movie similarities and suggest
+                    personalized choices.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Loading -->
+        <div id="loading" class="loading hidden">
+
+            <div class="loader"></div>
+
+            <p>
+                AI is finding movies for you...
+            </p>
+
+        </div>
+
+
+        <!-- Error Message -->
+        <div id="errorMessage" class="error hidden"></div>
+
+
+        <!-- Results -->
+        <section id="resultsSection" class="results-section hidden">
+
+            <div class="results-header">
+
+                <div>
+
+                    <p class="section-label">
+                        AI GENERATED
+                    </p>
+
+                    <h2>
+                        Recommended For You
+                    </h2>
+
+                </div>
+
+                <div class="result-count">
+                    TOP 5
+                </div>
+
+            </div>
+
+
+            <div
+                id="recommendations"
+                class="movie-grid"
+            ></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            Built with Python • Flask • Scikit-learn • TF-IDF
+        </p>
+
+        <p>
+            MovieMind AI © 2026
+        </p>
+
+    </footer>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
